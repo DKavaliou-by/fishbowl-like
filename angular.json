@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "fishbowl-like"
+  "defaultProject": "fishbowl-like",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

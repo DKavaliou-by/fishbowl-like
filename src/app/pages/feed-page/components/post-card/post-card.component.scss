@@ -1,0 +1,21 @@
+.post {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.25rem;
+  margin: .3125rem 0;
+  padding: .625rem;
+  cursor: auto;
+
+
+  &__header {
+    display: flex;
+
+    .av {
+      width: 1.875rem;
+      height: 1.875rem;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  }
+}
