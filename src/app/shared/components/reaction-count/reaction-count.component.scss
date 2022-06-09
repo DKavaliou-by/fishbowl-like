@@ -1,0 +1,28 @@
+:host {
+  color: #4c28ff;
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  align-items: center;
+  margin-top: 0.9375rem;
+}
+
+.icons {
+  &__reaction {
+    width: 0.8125rem;
+    vertical-align: middle;
+    height: 0.8125rem;
+    border: 1px solid #fff;
+    border-radius: 1.25rem;
+
+    &:not(:last-child) {
+      margin-right: -0.375rem;
+    }
+  }
+}
+
+.likes {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0 10px;
+}

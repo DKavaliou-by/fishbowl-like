@@ -1,14 +1,11 @@
-<div class="post">
+<!-- <div class="post">
   <div class="post__header">
-    <img
-      class="av"
-      [src]="post?.feedIcon"
-    >
+    
     <div class="title">
-      <h3>{{ post?.feedName }}</h3>
+      
     </div>
     <div class="time">
-      {{ post?.date }}
+      
     </div>
   </div>
   <div class="post__body">
@@ -16,4 +13,47 @@
     <div class="likes"></div>
   </div>
   <div class="post__footer"></div>
+</div> -->
+
+<div class="container post">
+  <div class="row">
+    <div class="col-sm-1">
+      <img
+        class="av"
+        [src]="post?.feedIcon"
+      >
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <h3 class="post__title">{{ post?.feedName }}</h3>
+      </div>
+      <div class="row">
+        <!-- TODO Will need to move to separate component when we include bowl-link functionality  -->
+        <a class="post__feed-link">
+          <span>
+            ▸
+          </span>
+          <h3>{{ post?.feedName }}</h3>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      {{ post?.dateSinceNowHM }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-11 offset-sm-1">
+      <p>{{ post?.feedName }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-11 offset-sm-1">
+      <!-- TODO Think how to solve without '||'
+      Catch quite weird TS error -->
+      <app-reaction-count
+        [reactions]="post?.reactionCountersToShow || []"
+        [reactionsCount]="post?.reactionsCount || 0"
+      ></app-reaction-count>
+    </div>
+  </div>
 </div>

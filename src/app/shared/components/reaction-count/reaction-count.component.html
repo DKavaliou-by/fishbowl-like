@@ -1,0 +1,42 @@
+<div class="icons">
+  <!-- <img 
+    *ngIf="reactions.like"
+    class="icons__reaction"
+    src="assets/reactions/like.svg"
+    alt="like"
+    [style.z-index]=""
+  >
+  <img 
+    *ngIf="reactions.smart"
+    class="icons__reaction"
+    src="assets/reactions/smart.svg"
+    alt="smart"
+  >
+  <img 
+    *ngIf="reactions.helpful"
+    class="icons__reaction"
+    src="assets/reactions/helpful.svg"
+    alt="helpful"
+  >
+  <img 
+    *ngIf="reactions.uplifting"
+    class="icons__reaction"
+    src="assets/reactions/uplifting.svg"
+    alt="uplifting"
+  >
+  <img 
+    *ngIf="reactions.funny"
+    src="assets/reactions/funny.svg"
+    alt="funny"
+  > -->
+  <img 
+    *ngFor="let reaction of reactions; let i=index"
+    class="icons__reaction"
+    src="{{ 'assets/reactions/' + reaction + '.svg'}}"
+    [alt]="reaction"
+    [style.z-index]="10 - i"
+  >
+</div>
+<div *ngIf="reactionsCount" class="likes">
+  <span>{{ reactionsCount }}</span>
+</div>

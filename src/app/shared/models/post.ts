@@ -1,6 +1,6 @@
 
 export interface IPostsRq {
-  posts: IPost[];
+  posts: IPostAPI[];
 }
 
 export interface IPost {
@@ -13,9 +13,26 @@ export interface IPost {
   date?: Date;
   feedName?: string;
   feedIcon?: string;
+  // UI generated fields
+  dateSinceNowHM?: string;
+  reactionCountersToShow?: string[];
+  reactionsCount?: number;
 }
 
-interface IReactionCounterType {
+export interface IPostAPI {
+  _id: string;
+  reactionCounters?: IReactionCounterType;
+  sign?: ISign;
+  likesCount?: number;
+  messageType?: IMessageType;
+  text?: string;
+  date?: string;
+  feedName?: string;
+  feedIcon?: string;
+}
+
+
+export interface IReactionCounterType {
   like?: number;
   helpful?: number;
   smart?: number;

@@ -10,6 +10,7 @@ import { POSTS_REDUCER_KEY, postsReducer } from './store/posts.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './store/posts.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     PostCardComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
     HttpClientModule,
     FeedPageRoutingModule,

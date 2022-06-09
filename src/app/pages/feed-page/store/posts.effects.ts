@@ -15,8 +15,8 @@ export class PostsEffects {
       ofType(PostsActions.getPostsRq),
       switchMap(({count, start}) =>
         this._feedPageService.getPosts(count, start).pipe(
-          map((rq) =>
-            PostsActions.getPostsSs({posts: rq.posts})
+          map((posts) =>
+            PostsActions.getPostsSs({posts})
           ),
           catchError((error: HttpErrorResponse) =>
             of(PostsActions.getPostsEr({ error}))

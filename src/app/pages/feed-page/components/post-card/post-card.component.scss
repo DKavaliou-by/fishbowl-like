@@ -7,15 +7,39 @@
   padding: .625rem;
   cursor: auto;
 
-
-  &__header {
+  &__feed-link {
     display: flex;
-
-    .av {
-      width: 1.875rem;
-      height: 1.875rem;
-      cursor: pointer;
-      border-radius: 50%;
+    flex-direction: row;
+    align-items: baseline;
+    color: #4c28ff;
+    font-size: 0.75rem;
+    text-decoration: none;
+    cursor: pointer;
+  
+    span, h3 {
+      font-size: inherit;
+      margin: 0;
+    }
+  
+    &:hover {
+      h3 {
+        text-decoration: underline;
+      }
     }
   }
+
+  &__title {
+    font-size: 0.75rem;
+    margin: 0;
+  }
 }
+
+.av {
+  width: 1.875rem;
+  height: 1.875rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+
+

@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IPost } from 'src/app/shared/models/post';
 import { PostsActions } from './store/posts.actions';
-import { selectPosts } from './store/posts.selectors';
+import { selectPosts, selectPostsToDisplay } from './store/posts.selectors';
 
 @Component({
   selector: 'app-feed-page',
@@ -19,8 +19,12 @@ export class FeedPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.posts$ = this._store.select(selectPosts);
+    this.posts$ = this._store.select(selectPostsToDisplay);
     this._store.dispatch(PostsActions.getPostsRq({count: 20, start: 0}));
+  }
+
+  public trackByPostId(index: number, post: IPost): string {
+    return post._id;
   }
 
 }
