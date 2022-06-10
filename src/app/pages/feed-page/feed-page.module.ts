@@ -12,12 +12,14 @@ import { FeedPageEffects } from './store/feed-page.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MetaCardComponent } from './components/meta-card/meta-card.component';
 
 
 @NgModule({
   declarations: [
     FeedPageComponent,
-    PostCardComponent
+    PostCardComponent,
+    MetaCardComponent
   ],
   imports: [
     InfiniteScrollModule,

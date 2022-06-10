@@ -7,6 +7,13 @@
   padding: .625rem;
   cursor: auto;
 
+  &__av {
+    width: 1.875rem;
+    height: 1.875rem;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
   &__feed-link {
     display: flex;
     flex-direction: row;
@@ -34,12 +41,7 @@
   }
 }
 
-.av {
-  width: 1.875rem;
-  height: 1.875rem;
-  cursor: pointer;
-  border-radius: 50%;
-}
+
 
 
 

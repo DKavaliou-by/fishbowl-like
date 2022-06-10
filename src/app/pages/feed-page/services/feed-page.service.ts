@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { IPost, IPostsRq } from 'src/app/shared/models/post';
 import { environment } from 'src/environments/environment';
 import { IMetaCard, IMetaRq } from 'src/app/shared/models/meta-card';
+import { ICardType } from 'src/app/shared/models/cardType';
 
 @Injectable()
 export class FeedPageService {
@@ -51,6 +52,7 @@ export class FeedPageService {
         ...post,
         id: post._id,
         date: post.date ? new Date(post.date) : undefined,
+        cardType: ICardType.Post,
       }
     })
   }
@@ -60,6 +62,8 @@ export class FeedPageService {
       return {
         ...card,
         id: card._id,
+        cardType: ICardType.Meta,
+        priority: card.position || 0,
       }
     })
 

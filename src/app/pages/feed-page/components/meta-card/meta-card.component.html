@@ -1,0 +1,30 @@
+<div 
+  class="container meta-card"
+  [ngStyle]="{'backgroundColor':  meta.content?.backgroundColor}"
+>
+  <div class="row">
+    <div class="col-sm-2">
+      <!-- TODO Add image. Didn't find it in stage -meta api -->
+    </div>
+    <div class="col-sm-10">
+      <div 
+        class="row meta-card__title"
+      >
+        <h3
+          [ngStyle]="{'color': meta.content?.titleColor}"
+        >
+          {{ meta.content.title }}
+        </h3>
+      </div>
+      <div 
+        class="row meta-card__text"
+      >
+        <p
+          [ngStyle]="{'color': meta.content?.textColor}"
+        >
+          {{ meta.content.text }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

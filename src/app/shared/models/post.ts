@@ -1,3 +1,4 @@
+import { ICardType } from "./cardType";
 
 export interface IPostsRq {
   posts: IPostAPI[];
@@ -18,6 +19,8 @@ export interface IPost {
   dateSinceNowHM?: string;
   reactionCountersToShow?: string[];
   reactionsCount?: number;
+  cardType: ICardType;
+  priority?: number;
 }
 
 export interface IPostAPI {
