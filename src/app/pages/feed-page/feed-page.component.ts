@@ -51,11 +51,11 @@ export class FeedPageComponent implements OnInit {
     );
 
     this._store.dispatch(PostsActions.getPostsRq({count: 20, init: true}));
-    this._store.dispatch(MetaCardsActions.getMetaCardsRq());
+    // this._store.dispatch(MetaCardsActions.getMetaCardsRq());
   }
 
-  public trackByPostId(index: number, post: IPost): string {
-    return post._id;
+  public trackByCardId(index: number, card: IPost|IMetaCard): string {
+    return card._id;
   }
 
   public onScrollDown(event: any){

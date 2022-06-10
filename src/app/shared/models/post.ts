@@ -21,6 +21,7 @@ export interface IPost {
   reactionsCount?: number;
   cardType: ICardType;
   priority?: number;
+  signText?: string;
 }
 
 export interface IPostAPI {
@@ -44,24 +45,31 @@ export interface IReactionCounterType {
   uplifting?: number;
 }
 
-interface ISign {
+export interface ISign {
   professionalTitle?: string;
   signType?: ISignType;
+  companyDisplayName?: string;
+  firstLastName?: IFirstLastName;
+  username?: string;
+  location: string;
 }
 
-enum ISignType {
+interface IFirstLastName {
+  firstName: string;
+  lastName: string;
+}
+
+// TODO rename enum Title
+// Names should be based on business logic intead of display functionality 
+export enum ISignType {
   CompanyDisplayName = 0,
   Location = 1,
   Title = 2,
-  // Based on test desc should be same with 0 type.
-  // Commented for now
-  // CompanyDisplayName = 3,
+  CompanyDisplayName2 = 3,
   Username = 4,
   FirstAndLastNames = 5,
   Teacher = 6,
-  // Based on test desc should be same with 0 type.
-  // Commented for now
-  // Teacher = 7,
+  Teacher2 = 7,
   DeactivatedUser = 8,
 }
 

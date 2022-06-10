@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { catchError, map, of, switchMap, withLatestFrom } from 'rxjs';
+import { catchError, map, mergeMap, of, switchMap, withLatestFrom } from 'rxjs';
 import { FeedPageService } from '../services/feed-page.service';
 import { MetaCardsActions, PostsActions } from './feed-page.actions';
 import { selectPostsCount } from './feed-page.selectors';
@@ -33,6 +33,13 @@ export class FeedPageEffects {
           )
         )
       })
+    );
+  });
+
+  public metaRequest$ = createEffect(() => {
+    return this._actions$.pipe(
+      ofType(PostsActions.getPostsSs),
+      map(() => MetaCardsActions.getMetaCardsRq())
     );
   });
 

@@ -39,6 +39,14 @@
     font-size: 0.75rem;
     margin: 0;
   }
+
+  &__time-since {
+    color: #544e5d;
+    font-size: .75rem;
+    line-height: 1.5rem;
+    font-weight: 100;
+    cursor: pointer;
+  }
 }
 
 

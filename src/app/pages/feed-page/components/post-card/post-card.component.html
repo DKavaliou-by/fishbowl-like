@@ -8,7 +8,7 @@
     </div>
     <div class="col-sm-9">
       <div class="row">
-        <h3 class="post__title">{{ post?.feedName }}</h3>
+        <h3 class="post__title">{{ post?.signText }}</h3>
       </div>
       <div class="row">
         <!-- TODO Will need to move to separate component when we include bowl-link functionality  -->
@@ -20,13 +20,20 @@
         </a>
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-2 post__time-since">
+      <!-- TODO add share menu on click -->
       {{ post?.dateSinceNowHM }}
+      <img src="assets/icons/arrow-down-grey-18.svg" alt="arrow-down">
     </div>
   </div>
   <div class="row">
     <div class="col-sm-11 offset-sm-1">
-      <p>{{ post?.feedName }}</p>
+      <ng-container *ngIf="post?.messageType === 1 ; else textOnly">
+        <img src="post?.messageData?.url">
+      </ng-container>
+      <ng-template #textOnly>
+        <p>{{ post?.text }}</p>
+      </ng-template>
     </div>
   </div>
   <div class="row">

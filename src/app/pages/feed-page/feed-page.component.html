@@ -8,7 +8,7 @@
           (scrolled)="onScrollDown($event)" 
         >
           <ng-container 
-            *ngFor="let card of cards; trackBy: trackByPostId"
+            *ngFor="let card of cards; trackBy: trackByCardId"
           >
             <ng-container *ngIf="card.cardType === ICardType.Post; else metaCard">
               <app-post-card  
