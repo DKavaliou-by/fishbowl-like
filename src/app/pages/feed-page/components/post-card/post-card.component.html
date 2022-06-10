@@ -29,7 +29,14 @@
   <div class="row">
     <div class="col-sm-11 offset-sm-1">
       <ng-container *ngIf="post?.messageType === 1 ; else textOnly">
-        <img src="post?.messageData?.url">
+        <img
+          [ngStyle]="{
+            'width.px': post?.messageData?.width,
+            'height.px' : post?.messageData?.height
+          }"
+          [src]="post?.messageData?.url"
+          [alt]="post?.messageData?.text"
+        >
       </ng-container>
       <ng-template #textOnly>
         <p>{{ post?.text }}</p>

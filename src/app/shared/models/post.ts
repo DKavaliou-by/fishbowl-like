@@ -10,6 +10,7 @@ export interface IPost {
   sign?: ISign;
   likesCount?: number;
   messageType?: IMessageType;
+  messageData?: any;
   text?: string;
   date?: Date;
   feedName?: string;
@@ -30,6 +31,7 @@ export interface IPostAPI {
   sign?: ISign;
   likesCount?: number;
   messageType?: IMessageType;
+  messageData?: any;
   text?: string;
   date?: string;
   feedName?: string;
