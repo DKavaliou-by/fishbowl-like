@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IPost } from 'src/app/shared/models/post';
-import { PostsActions } from './store/posts.actions';
-import { selectPosts, selectPostsToDisplay } from './store/posts.selectors';
+import { MetaCardsActions, PostsActions } from './store/feed-page.actions';
+import { selectPostsToDisplay } from './store/feed-page.selectors';
 
 @Component({
   selector: 'app-feed-page',
@@ -20,11 +20,16 @@ export class FeedPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.posts$ = this._store.select(selectPostsToDisplay);
-    this._store.dispatch(PostsActions.getPostsRq({count: 20, start: 0}));
+    this._store.dispatch(PostsActions.getPostsRq({count: 20, init: true}));
+    this._store.dispatch(MetaCardsActions.getMetaCardsRq());
   }
 
   public trackByPostId(index: number, post: IPost): string {
     return post._id;
+  }
+
+  public onScrollDown(event: any){
+    this._store.dispatch(PostsActions.getPostsRq({count: 20, init: false}));
   }
 
 }

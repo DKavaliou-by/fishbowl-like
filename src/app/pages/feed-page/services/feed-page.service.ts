@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { IPost, IPostsRq } from 'src/app/shared/models/post';
 import { environment } from 'src/environments/environment';
+import { IMetaCard, IMetaRq } from 'src/app/shared/models/meta-card';
 
 @Injectable()
 export class FeedPageService {
-
   constructor(
     private _httpClient: HttpClient,
   ) { }
@@ -30,13 +30,38 @@ export class FeedPageService {
       map(this._mapPosts),
     )
   }
+  
+  // TODO Add Meta card mapper
+  public getMeta(): Observable<IMetaCard[]> {
+    return this._httpClient.get<IMetaRq>(
+      `${environment.API_URL}/v4/feed/consolidated/meta`,
+      {
+        headers: {
+          'session-key': environment.API_SESSION_KEY,
+        },
+      }
+    ).pipe(
+      map(this._mapMetaCards),
+    )
+  }
 
   private _mapPosts(rq: IPostsRq): IPost[] {
     return rq.posts.map(post => {
       return {
         ...post,
+        id: post._id,
         date: post.date ? new Date(post.date) : undefined,
       }
     })
+  }
+
+  private _mapMetaCards(rq: IMetaRq): IMetaCard[] {
+    return rq.cards.map(card => {
+      return {
+        ...card,
+        id: card._id,
+      }
+    })
+
   }
 }

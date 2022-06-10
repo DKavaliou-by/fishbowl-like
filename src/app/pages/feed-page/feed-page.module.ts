@@ -6,11 +6,12 @@ import { FeedPageComponent } from './feed-page.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { FeedPageService } from './services/feed-page.service';
 import { StoreModule } from '@ngrx/store';
-import { POSTS_REDUCER_KEY, postsReducer } from './store/posts.reducer';
+import { feedPageReducer, FEED_PAGE_REDUCER_KEY } from './store/feed-page.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { PostsEffects } from './store/posts.effects';
+import { FeedPageEffects } from './store/feed-page.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -19,12 +20,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
     PostCardComponent
   ],
   imports: [
+    InfiniteScrollModule,
     SharedModule,
     CommonModule,
     HttpClientModule,
     FeedPageRoutingModule,
-    StoreModule.forFeature(POSTS_REDUCER_KEY, postsReducer),
-    EffectsModule.forFeature([PostsEffects]),
+    StoreModule.forFeature(FEED_PAGE_REDUCER_KEY, feedPageReducer),
+    EffectsModule.forFeature([FeedPageEffects]),
   ],
   providers: [
     FeedPageService,

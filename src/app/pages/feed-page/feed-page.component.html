@@ -4,6 +4,8 @@
       <div class="col-sm-12 col-xl-6 offset-xl-3">
         <div
           *ngIf="posts$ | async as posts"
+          infinite-scroll 
+          (scrolled)="onScrollDown($event)" 
         >
           <app-post-card *ngFor="let post of posts; trackBy: trackByPostId" 
             [post]="post"

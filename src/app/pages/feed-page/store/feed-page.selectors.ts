@@ -1,13 +1,25 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { timeSinceNowHR } from 'src/app/shared/utils/date.utils';
-import { IPostsState, POSTS_REDUCER_KEY } from './posts.reducer';
+import { FEED_PAGE_REDUCER_KEY, IFeedPageState, postsAdapter } from './feed-page.reducer';
+
+const adapterEventsSelects = postsAdapter.getSelectors();
 
 const selectGetFeatureState =
-  createFeatureSelector<IPostsState>(POSTS_REDUCER_KEY);
+  createFeatureSelector<IFeedPageState>(FEED_PAGE_REDUCER_KEY);
 
-export const selectPosts = createSelector(
+const selectPostsEntityState = createSelector(
   selectGetFeatureState,
   (state) => state.posts,
+);
+
+const selectPosts = createSelector(
+  selectPostsEntityState,
+  adapterEventsSelects.selectAll
+);
+
+export const selectPostsCount = createSelector(
+  selectPosts,
+  (posts) => posts.length,
 );
 
 export const selectPostsToDisplay = createSelector(

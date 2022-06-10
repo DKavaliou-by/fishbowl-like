@@ -14,6 +14,7 @@ export interface IPost {
   feedName?: string;
   feedIcon?: string;
   // UI generated fields
+  id?: string;
   dateSinceNowHM?: string;
   reactionCountersToShow?: string[];
   reactionsCount?: number;
